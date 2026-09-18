@@ -2,6 +2,9 @@ using System;
 
 class Program
 {
+    // Creativity: Added additional journal prompts beyond the required five,
+    // including a prompt about recognizing the hand of the Lord in my life.
+
     static void Main(string[] args)
     {
         Journal theJournal = new Journal();
@@ -10,7 +13,7 @@ class Program
         Console.WriteLine("Welcome to the Journal Program!");
 
         string choice = "";
- 
+
         while (choice != "5")
         {
             Console.WriteLine();
@@ -45,13 +48,13 @@ class Program
                 theJournal.DisplayAll();
             }
             else if (choice == "3")
-{
-    Console.Write("Enter filename: ");
-    string filename = Console.ReadLine();
+            {
+                Console.Write("Enter filename: ");
+                string filename = Console.ReadLine();
 
-    theJournal.LoadFromFile(filename);
-    Console.WriteLine("Journal loaded successfully.");
-}
+                theJournal.LoadFromFile(filename);
+                Console.WriteLine("Journal loaded successfully.");
+            }
             else if (choice == "4")
             {
                 Console.Write("Enter filename: ");
@@ -61,5 +64,5 @@ class Program
                 Console.WriteLine("Journal saved successfully.");
             }
         }
-    } 
+    }
 }
