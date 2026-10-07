@@ -26,6 +26,9 @@ public class ReflectionActivity : Activity
 
     private Random _random = new Random();
 
+    private string _lastPrompt = "";
+    private string _lastQuestion = "";
+
     public ReflectionActivity()
         : base(
             "Reflection Activity",
@@ -47,9 +50,12 @@ public class ReflectionActivity : Activity
         Console.ReadLine();
 
         Console.WriteLine();
-        Console.WriteLine("Now ponder on each of the following questions as they relate to this experience.");
+        Console.WriteLine(
+            "Now ponder on each of the following questions as they relate to this experience.");
+
         Console.Write("You may begin in: ");
         ShowCountDown(5);
+
         Console.Clear();
 
         DateTime endTime = DateTime.Now.AddSeconds(GetDuration());
@@ -66,13 +72,33 @@ public class ReflectionActivity : Activity
 
     private string GetRandomPrompt()
     {
-        int index = _random.Next(_prompts.Count);
-        return _prompts[index];
+        string prompt;
+
+        do
+        {
+            int index = _random.Next(_prompts.Count);
+            prompt = _prompts[index];
+        }
+        while (prompt == _lastPrompt && _prompts.Count > 1);
+
+        _lastPrompt = prompt;
+
+        return prompt;
     }
 
     private string GetRandomQuestion()
     {
-        int index = _random.Next(_questions.Count);
-        return _questions[index];
+        string question;
+
+        do
+        {
+            int index = _random.Next(_questions.Count);
+            question = _questions[index];
+        }
+        while (question == _lastQuestion && _questions.Count > 1);
+
+        _lastQuestion = question;
+
+        return question;
     }
 }

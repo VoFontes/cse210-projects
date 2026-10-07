@@ -1,16 +1,18 @@
+using System;
+
 public class Activity
 {
     private string _name;
     private string _description;
     private int _duration;
 
-public Activity(string name, string description)
+    public Activity(string name, string description)
     {
         _name = name;
         _description = description;
     }
 
-public void StartActivity()
+    public void StartActivity()
     {
         Console.Clear();
 
@@ -27,7 +29,7 @@ public void StartActivity()
         ShowSpinner(3);
     }
 
-public void ShowSpinner(int seconds)
+    public void ShowSpinner(int seconds)
     {
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(seconds);
@@ -35,48 +37,50 @@ public void ShowSpinner(int seconds)
         while (DateTime.Now < endTime)
         {
             Console.Write("|");
-            Thread.Sleep(250);
+            System.Threading.Thread.Sleep(250);
             Console.Write("\b \b");
 
             Console.Write("/");
-            Thread.Sleep(250);
+            System.Threading.Thread.Sleep(250);
             Console.Write("\b \b");
 
             Console.Write("-");
-            Thread.Sleep(250);
+            System.Threading.Thread.Sleep(250);
             Console.Write("\b \b");
 
             Console.Write("\\");
-            Thread.Sleep(250);
+            System.Threading.Thread.Sleep(250);
             Console.Write("\b \b");
         }
     }
 
-public void ShowCountDown(int seconds)
+    public void ShowCountDown(int seconds)
     {
         for (int i = seconds; i > 0; i--)
         {
             Console.Write(i);
-            Thread.Sleep(1000);
+            System.Threading.Thread.Sleep(1000);
             Console.Write("\b \b");
         }
     }
 
-public void EndActivity()
+    public int GetDuration()
+    {
+        return _duration;
+    }
+
+    public void EndActivity()
     {
         Console.WriteLine();
         Console.WriteLine("Well done!!");
-        Thread.Sleep(2000);
+        System.Threading.Thread.Sleep(2000);
 
         Console.WriteLine();
-        Console.WriteLine($"You have completed another {_duration} seconds of the {_name}.");
-        Thread.Sleep(3000);
+        Console.WriteLine(
+            $"You have completed another {_duration} seconds of the {_name}.");
+
+        System.Threading.Thread.Sleep(3000);
 
         Console.WriteLine();
     }
-
-public int GetDuration()
-   {
-    return _duration;
-   }
 }

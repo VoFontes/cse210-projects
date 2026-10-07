@@ -1,10 +1,14 @@
 using System;
+using System.Threading;
 
 class Program
 {
     static void Main(string[] args)
     {
         string choice = "";
+
+        // Creativity: The Reflection Activity avoids immediately repeating
+        // the same prompt or reflection question, making each session more varied.
 
         while (choice != "4")
         {
@@ -40,12 +44,15 @@ class Program
 
                 case "4":
                     Console.WriteLine();
-                    Console.WriteLine("Thank you for using the Mindfulness Program.");
+                    Console.WriteLine(
+                        "Thank you for using the Mindfulness Program.");
                     break;
 
                 default:
                     Console.WriteLine();
-                    Console.WriteLine("Invalid choice. Please select 1, 2, 3, or 4.");
+                    Console.WriteLine(
+                        "Invalid choice. Please select 1, 2, 3, or 4.");
+
                     Thread.Sleep(2000);
                     break;
             }
