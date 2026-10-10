@@ -1,0 +1,5 @@
+Score|4100
+SimpleGoal|Run a marathon|Complete a marathon|1000|True
+EternalGoal|Read the scriptures|Read the scriptures every day|100
+ChecklistGoal|Exercise regularly|Exercise five times|100|5|500|5
+ChecklistGoal|Exercise regularly|Exercise five times|100|5|500|5
